@@ -23,7 +23,7 @@
       </div>
 
       <!-- New card button col -->
-      <div class="col">
+      <div class="col flex flex-end">
         <q-btn no-caps class="new_card_btn">
           <q-icon name="add_circle" size="xs" class="q-mr-sm"></q-icon>
           <div class="new_card_btn__text text-right">New card</div>
@@ -50,14 +50,74 @@
 
     <!-- Card and card details container row -->
     <div class="row q-mt-md">
-      <q-card class="card-section">
-        <q-card-section class="row">
-          <div class="col-6 flex flex-center">
-            CC Card
-            buttons
+      <q-card class="card-section q-pa-lg">
+        <q-card-section class="row q-col-gutter-x-xl">
+          <div class="col-6 flex-center">
+            <CardCarousel 
+             :active-card-idx="activeCard"
+             :cards-list="cardsList"
+            />
+            <CardActions 
+             :active-card-idx="activeCard"
+             :cards-list="cardsList"
+            />
           </div>
           <div class="col-6 flex flex-center">
-            transcations
+            <!-- <q-list bordered class="rounded-borders">
+              <q-expansion-item
+                expand-separator
+                icon="perm_identity"
+                label="Account settings"
+                caption="John Doe"
+              >
+                <q-card>
+                  <q-card-section>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
+                    commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
+                    eveniet doloribus ullam aliquid.
+                  </q-card-section>
+                </q-card>
+              </q-expansion-item>
+
+              <q-expansion-item
+                expand-separator
+                icon="signal_wifi_off"
+                label="Wifi settings"
+              >
+                <q-card>
+                  <q-card-section>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
+                    commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
+                    eveniet doloribus ullam aliquid.
+                  </q-card-section>
+                </q-card>
+              </q-expansion-item>
+
+              <q-expansion-item
+                expand-separator
+                icon="drafts"
+                label="Drafts"
+                header-class="text-purple"
+              >
+                <q-card>
+                  <q-card-section>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
+                    commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
+                    eveniet doloribus ullam aliquid.
+                  </q-card-section>
+                </q-card>
+              </q-expansion-item>
+
+              <q-expansion-item icon="assessment" label="Disabled" disable>
+                <q-card>
+                  <q-card-section>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
+                    commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
+                    eveniet doloribus ullam aliquid.
+                  </q-card-section>
+                </q-card>
+              </q-expansion-item>
+            </q-list> -->
           </div>
         </q-card-section>
       </q-card>
@@ -66,17 +126,52 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import CardCarousel from 'components/CardCarousel.vue';
+import CardActions from 'components/CardActions.vue';
 
-export default defineComponent({
+export default {
   name: 'IndexPage',
+  components: {
+    CardCarousel,
+    CardActions
+  },
   data() {
     return {
       avlBalance: "3,000",
-      selectedTab: "personal_cards"
+      selectedTab: "personal_cards",
+      activeCard: 0,
+      cardsList: [
+        {
+          name: "Mark Henry",
+          number: "1234-5678-9001-2020",
+          cvv: 534,
+          expirationDate: "2/2027",
+          isActive: true,
+          spendLimit: 10000,
+          cancelled: false
+        },
+        {
+          name: "Sam Fischer",
+          number: "4539-7335-4677-7960",
+          cvv: 830,
+          expirationDate: "12/2027",
+          isActive: true,
+          spendLimit: 15000,
+          cancelled: false
+        },
+        {
+          name: "Ezio Auditore",
+          number: "4556-1944-5315-2697",
+          cvv: 534,
+          expirationDate: "9/2028",
+          isActive: false,
+          spendLimit: 5000,
+          cancelled: true
+        }
+      ]
     }
   }
-})
+}
 </script>
 <style lang="scss">
 
