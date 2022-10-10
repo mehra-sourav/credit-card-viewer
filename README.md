@@ -23,3 +23,8 @@ quasar build
 
 ### Customize the configuration
 See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js).
+
+
+
+### DEPLOYED AT
+https://credit-card-viewer.netlify.app/
