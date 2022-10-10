@@ -3,9 +3,7 @@
     clickable
     class="q-pl-sm"
   >
-    <q-item-section
-      side
-    >
+    <q-item-section side >
       <q-icon size="sm">
         <img :src="imgPath" :alt="icon"/>
       </q-icon>

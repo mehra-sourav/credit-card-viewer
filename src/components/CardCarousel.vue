@@ -58,7 +58,7 @@ export default {
 
 .payment-card {
   background-color: var(--green);
-  width: 100%;
+  max-width: 400px;
   color: var(--white);
   border-radius: 10px;
 
