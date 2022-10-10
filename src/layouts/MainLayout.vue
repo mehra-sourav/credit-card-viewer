@@ -32,7 +32,7 @@
 import SideNavItem from 'components/SideNavItem.vue';
 
 export default {
-  name: 'mainLayout',
+  name: 'MainLayout',
 
   components: {
     SideNavItem

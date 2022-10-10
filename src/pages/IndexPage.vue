@@ -29,7 +29,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'indexPage'
+  name: 'IndexPage'
 })
 </script>
 <style lang="scss">
