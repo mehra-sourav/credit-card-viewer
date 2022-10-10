@@ -1,42 +1,25 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
-
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
-      </q-toolbar>
-    </q-header>
-
     <q-drawer
-      v-model="leftDrawerOpen"
       show-if-above
-      bordered
+      class="sidenav"
     >
-      <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
+      <q-item-label
+       header
+       class="q-ml-md white--text"
+      >
+        <q-img class="q-ml-sm" :src="aspireIconPath" width="50%" />
+        <p class="sidenav__desc-text">
+          Trusted way of banking for 3,000+ SMEs and startups in Singapore
+        </p>
+        <SideNavItem
+          v-for="item in sideNavItems"
+          :key="item.title"
+          :active="item.active"
+          v-bind="item"
+          class="q-my-xl"
         />
-      </q-list>
+      </q-item-label>
     </q-drawer>
 
     <q-page-container>
@@ -46,71 +29,54 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
-import EssentialLink from 'components/EssentialLink.vue'
+import SideNavItem from 'components/SideNavItem.vue';
 
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-]
-
-export default defineComponent({
+export default {
   name: 'MainLayout',
 
   components: {
-    EssentialLink
+    SideNavItem
   },
 
-  setup () {
-    const leftDrawerOpen = ref(false)
-
+  data() {
     return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
+      leftDrawerOpen: false,
+      sideNavItems: [
+        {
+          title: 'Home',
+          icon: 'home',
+          active: false
+        },
+        {
+          title: 'Cards',
+          icon: 'card',
+          active: true
+        },
+        {
+          title: 'Payments',
+          icon: 'payment',
+          active: false
+        },
+        {
+          title: 'Credit',
+          icon: 'credit',
+          active: false
+        },
+        {
+          title: 'Settings',
+          icon: 'settings',
+          active: false
+        },
+      ],
+      aspireIconPath: require("../assets/sidenav/aspire-icon.svg")
     }
+  },
+
+  methods: {
   }
-})
+}
 </script>
+
+<style lang="scss">
+  @import "../css/mainLayout.scss";
+</style>
