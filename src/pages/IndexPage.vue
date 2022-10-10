@@ -24,7 +24,7 @@
 
       <!-- New card button col -->
       <div class="col flex flex-end">
-        <q-btn no-caps class="new_card_btn">
+        <q-btn no-caps class="new_card_btn q-ml-auto">
           <q-icon name="add_circle" size="xs" class="q-mr-sm"></q-icon>
           <div class="new_card_btn__text text-right">New card</div>
         </q-btn>
