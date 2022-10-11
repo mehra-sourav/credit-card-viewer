@@ -21,10 +21,18 @@ npm run dev
 quasar build
 ```
 
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js).
-
-
-
 ### DEPLOYED AT
 https://credit-card-viewer.netlify.app/
+
+
+### Features completed
+Using Quasar framework, I've completed the following for now:
+* Sidenav 
+* Available balance and new card button (without functionality)
+* Credit/Debit card and relevant details container
+
+### Features pending
+* Information within Credit/Debit card
+* Active card actions section (freeze, cancel, etc.)
+* New Card addition
+* Responsiveness
