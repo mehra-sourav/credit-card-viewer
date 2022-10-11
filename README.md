@@ -25,13 +25,13 @@ quasar build
 https://credit-card-viewer.netlify.app/
 
 
-### Features completed
+### Features completed ✔️
 Using Quasar framework, I've completed the following for now:
 * Sidenav 
 * Available balance and new card button (without functionality)
 * Credit/Debit card and relevant details container
 
-### Features pending
+### Features pending 🔄
 * Information within Credit/Debit card
 * Active card actions section (freeze, cancel, etc.)
 * New Card addition
