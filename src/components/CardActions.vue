@@ -1,5 +1,5 @@
 <template>
-    card sbuttons
+    In Progress (Card buttons)
 </template>
 <script>
 export default {

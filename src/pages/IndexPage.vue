@@ -63,6 +63,7 @@
             />
           </div>
           <div class="col-6 flex flex-center">
+            In Progress (Transaction related details)
             <!-- <q-list bordered class="rounded-borders">
               <q-expansion-item
                 expand-separator
